@@ -17,7 +17,7 @@
           <el-checkbox v-model="form.check">我已阅读并同意用户协议和隐私条款</el-checkbox>
         </el-form-item>
         <el-form-item>
-             <el-button type="primary" style="width:100%">登录</el-button>
+             <el-button type="primary" style="width:100%" @click="submitForm('form')">登录</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -30,10 +30,28 @@ export default {
     return {
       form: { moble: '', code: '', check: false },
       rules: {
-        moble: [{ required: true, message: '请输入手机号码' }],
-        code: [{ required: true, message: '请输入验证码' }],
-        check: []
+        moble: [{ required: true, message: '请输入手机号码' }, { pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号码' }],
+        code: [{ required: true, message: '请输入验证码' }, { pattern: /^\d{6}$/, message: '请输入正确的验证码' }],
+        check: [{ validator: function (rule, value, callback) {
+          if (value) {
+            callback()
+          } else {
+            callback(new Error('请先同意协议'))
+          }
+        } }]
       }
+    }
+  },
+  methods: {
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }
