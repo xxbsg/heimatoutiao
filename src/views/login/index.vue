@@ -46,7 +46,21 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          // alert('submit!')
+          this.$axios({
+            url: '/authorizations', // 请求地址 axios 没有指定 类型 默认走get类型
+            method: 'post', // 类型
+            data: { mobile: this.form.moble, code: this.form.code } // body 参数
+          }).then(res => {
+            console.log(res.data.data)
+            localStorage.setItem('user-token', res.data.data.token)
+            this.$router.push('/home')
+          }).catch(() => {
+            this.$message({
+              message: '用户名或密码错误',
+              type: 'warning'
+            })
+          })
         } else {
           console.log('error submit!!')
           return false
