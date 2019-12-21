@@ -53,7 +53,7 @@ export default {
             data: { mobile: this.form.moble, code: this.form.code } // body 参数
           }).then(res => {
             console.log(res.data.data)
-            localStorage.setItem('user-token', res.data.data.token)
+            localStorage.setItem('user-token', res.data.token)
             this.$router.push('/home')
           }).catch(() => {
             this.$message({

@@ -53,8 +53,8 @@ export default {
       headers: { 'Authorization': 'Bearer ' + localStorage.getItem('user-token') }
     }).then(res => {
     //   console.log(res.data)
-      this.name = res.data.data.name
-      this.imgurl = res.data.data.photo
+      this.name = res.data.name
+      this.imgurl = res.data.photo
     }).catch(() => {
       console.log('错误')
     })
