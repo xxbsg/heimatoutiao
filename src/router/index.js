@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import login from '../views/login'
-
+import hhome from '../components/home/hhome'
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/', name: 'gen', component: login },
-  { path: '/home', name: 'home', component: () => import('../views/home') }
+  { path: '/home', name: 'home', component: () => import('../views/home'), children: [{ path: '', component: hhome }] }
   // {
   //   path: '/',
   //   name: 'home',
