@@ -1,12 +1,10 @@
 <template>
   <el-card>
-    <mb-xie  slot="header">
-      <template slot="juti">
-        评论管理
-      </template>
-
+    <mb-xie slot="header">
+      <template slot="juti">评论管理</template>
     </mb-xie>
     <comment-table></comment-table>
+
   </el-card>
 </template>
 
@@ -18,10 +16,8 @@ export default {
     'mb-xie': mbx,
     'comment-table': commentTable
   }
-
 }
 </script>
 
 <style>
-
 </style>
