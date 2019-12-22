@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
+import jsbigint from 'json-bigint'
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
   config.headers.Authorization = `Bearer ${window.localStorage.getItem('user-token')}`
@@ -8,6 +9,9 @@ axios.interceptors.request.use(function (config) {
 }, function (err) {
   console.log(err)
 })
+axios.defaults.transformResponse = [function (data) {
+  return jsbigint.parse(data) // 解决js处理大数字失真问题
+}]
 axios.interceptors.response.use(function (res) {
   return res.data ? res.data : {}
 }, function (err) {

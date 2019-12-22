@@ -55,8 +55,8 @@ export default {
     //   console.log(res.data)
       this.name = res.data.name
       this.imgurl = res.data.photo
-    }).catch(() => {
-      console.log('错误')
+    }).catch((err) => {
+      console.log('错误', err)
     })
   }
 }
