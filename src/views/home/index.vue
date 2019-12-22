@@ -26,6 +26,6 @@ export default {
   .el-aside {
 
     background-color: #353b4e;
-    height: 100vh;
+    min-height: 100vh;
   }
 </style>

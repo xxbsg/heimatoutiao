@@ -57,7 +57,7 @@ export default {
         params: { response_type: 'comment' }
       }).then(res => {
         // console.log(res)
-        this.tdata = res.data.results
+        this.tdata = res.data.results.concat(res.data.results)
       })
     }
   },
