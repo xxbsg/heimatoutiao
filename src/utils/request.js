@@ -10,7 +10,7 @@ axios.interceptors.request.use(function (config) {
   console.log(err)
 })
 axios.defaults.transformResponse = [function (data) {
-  return jsbigint.parse(data) // 解决js处理大数字失真问题
+  return data ? jsbigint.parse(data) : {} // 解决js处理大数字失真问题
 }]
 axios.interceptors.response.use(function (res) {
   return res.data ? res.data : {}

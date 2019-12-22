@@ -11,7 +11,8 @@ const routes = [
     component: () => import('../views/home'),
     children: [
       { path: '', component: hhome },
-      { path: 'comment', component: () => import('../views/comment') }
+      { path: 'comment', component: () => import('../views/comment') },
+      { path: 'material', component: () => import('../views/material') }
     ] }
   // {
   //   path: '/',
