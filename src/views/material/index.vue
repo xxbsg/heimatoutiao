@@ -168,7 +168,7 @@ export default {
   position: relative;
   width: 200px;
   height: 240px;
-  margin: 10px 37px;
+  margin: 10px 35px;
   img {
     width: 100%;
   }
