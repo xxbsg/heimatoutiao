@@ -3,7 +3,7 @@
     <mbx slot="header">
       <template slot="juti">文章管理</template>
     </mbx>
-    <el-form class="biao">
+    <el-form class="biao" label-width="100px">
       <el-form-item label="文章状态:">
         <el-radio-group v-model="form.radio">
           <el-radio :label="-1">全部</el-radio>
